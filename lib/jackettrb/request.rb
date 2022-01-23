@@ -4,6 +4,8 @@ require "rss"
 
 module Jackettrb
   class Request
+    attr_accessor :strict
+
     def initialize(key, host, strict=false)
       @key = key
       @host = host
