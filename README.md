@@ -33,12 +33,28 @@ req = Jackettrb::Request.new("https://127.0.0.1:9117", "MyApiKey123123")
 From here we can ask Jackett to query the indexers for a given search term like so
 
 ``` ruby
-req.query("Spiderman")
+results = req.query("Spiderman")
 ```
 
-You can also get a feed of all results with the aptly named `firehose`.
+You could also get a feed of all results with the aptly named `firehose`.
 
 ``` ruby
-req.firehose
+results = req.firehose
 ```
+Now we can loop over our results with a block like so
 
+```ruby
+res.items.each do |i|
+  attrs = { title: i.title, url: i.link, category: 0, user_id: 1 }
+  unless look_for_existing(i.title)
+    # discard
+  else
+    p = Post.new(attrs)
+    if p.save
+      Rails.logger.debug("SAVED OBJECT #{p}")
+    else
+      Rails.logger.debug("UNABLE TO SAVE OBJECT #{p}")
+    end
+  end
+end
+```
