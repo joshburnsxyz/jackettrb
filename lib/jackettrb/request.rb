@@ -1,5 +1,6 @@
 require "net/http"
 require "open-uri"
+require "rss"
 
 class Request
   def initialize(key, host, strict?=false)
