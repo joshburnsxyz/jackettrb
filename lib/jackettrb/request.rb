@@ -6,7 +6,7 @@ module Jackettrb
   class Request
     attr_accessor :strict, :host, :key
 
-    def initialize(host, key, strict: false)
+    def initialize(host, key, strict = false)
       @key = key
       @host = host
       @strict = strict
