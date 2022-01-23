@@ -4,9 +4,12 @@ Lightweight interaction layer for Jackett API servers.
 
 ## Installation
 
+Add this line to your `Gemfile`.
 ``` ruby
 gem "jackettrb"
 ```
+
+Or install it manually via the `gem` cli.
 
 ``` ruby
 $ gem install jackettrb
@@ -38,3 +41,4 @@ You can also get a feed of all results with the aptly named `firehose`.
 ``` ruby
 req.firehose
 ```
+
