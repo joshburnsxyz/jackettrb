@@ -6,11 +6,13 @@ module Jackettrb
   class Request
     attr_accessor :strict, :host, :key
 
+    # rubocop:disable Style/OptionalBooleanParameter
     def initialize(host, key, strict = false)
       @key = key
       @host = host
       @strict = strict
     end
+    # rubocop:enable Style/OptionalBooleanParameter
 
     def firehose
       url = parse_url(@host, nil)
